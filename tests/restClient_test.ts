@@ -1,3 +1,3 @@
 import { describe, it } from "@std/testing/bdd";
 
-describe("RestClient", () => {});
+describe("RESTClient", () => {});
