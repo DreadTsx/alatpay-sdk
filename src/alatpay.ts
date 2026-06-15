@@ -1,11 +1,32 @@
-import RestClient from "./restClient.ts";
+import RESTClient from "./restClient.ts";
+import type { GenerateVirtualAccountPayload } from "./types/global.ts";
 
 export default class ALATPayClient {
-  private client: RestClient;
+  client: RESTClient;
 
-  constructor() {}
+  constructor(
+    secretKey?: string,
+    businessId?: string,
+    webhookSecretKey?: string,
+    publicKey?: string,
+  ) {
+    this.client = new RESTClient(
+      secretKey,
+      businessId,
+      webhookSecretKey,
+      publicKey,
+    );
+  }
 
-  async generateVirtualAccount() {}
+  async generateVirtualAccount(
+    payload: GenerateVirtualAccountPayload,
+  ): Promise<APIResponse<VirtualAccount>> {
+    return this.client.call(
+      "/bank-transfer/api/v1/bankTransfer/virtualAccount",
+      HTTPMethod.POST,
+      payload,
+    );
+  }
 
   async initPayViaUSSD() {}
 
