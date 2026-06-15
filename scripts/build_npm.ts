@@ -16,7 +16,8 @@ await build({
     name: "@gray-adeyi/alatpay-sdk",
     version: Deno.args[0],
     description: "An ALATPay client SDK for the javascript runtime.",
-    author: "Gbenga Adeyi <adeyigbenga005@gmail.com>, Oluwola Emmanuel <hallowpahe@gmail.com>",
+    author:
+      "Gbenga Adeyi <adeyigbenga005@gmail.com>, Oluwola Emmanuel <hallowpahe@gmail.com>",
     license: "MIT",
     keywords: ["node", "bun", "deno", "typescript", "wema", "alat", "ALATPay"],
     dependencies: {},
