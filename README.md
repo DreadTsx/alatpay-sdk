@@ -1,5 +1,4 @@
-
-# ALATPay SDK (javascript/Typescript)
+# ALATPay SDK (Javascript/Typescript)
 
 An ALATPay client SDK for the javascript runtime.
 
@@ -39,4 +38,3 @@ bun add @gray-adeyi/alatpay-sdk
 ```bash
 deno add @gray-adeyi/alatpay-sdk
 ```
-
