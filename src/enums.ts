@@ -7,7 +7,14 @@ export const PaymentChannel = {
   STATIC_ACCOUNT: "8",
 } as const;
 
-export type PaymentChannel = (typeof PaymentChannel)[keyof typeof PaymentChannel];
+export type PaymentChannel =
+  (typeof PaymentChannel)[keyof typeof PaymentChannel];
+
+export const Currency = {
+  NGN: "NGN",
+} as const;
+
+export type Currency = (typeof Currency)[keyof typeof Currency];
 
 export const HTTPMethod = {
   GET: "GET",
