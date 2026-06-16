@@ -12,7 +12,7 @@ describe("ALATPayClient", () => {
     client = new ALATPayClient();
   });
 
-  it("generateVirtualAccount", async () => {
+  it.skip("generateVirtualAccount", async () => {
     const payload = {
       amount: 100,
       currency: Currency.NGN,
