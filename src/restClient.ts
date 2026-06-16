@@ -64,6 +64,20 @@ export default class RESTClient {
     return response.json();
   }
 
+  addQueryParams(
+    endpoint: string,
+    queryParams?: Record<string, any>,
+  ): string {
+    if (!queryParams) return endpoint;
+    const url = new URL(endpoint, "https://_");
+    // TODO:camelToPascalCase transformation
+    const transformedQueryParams =queryParams;
+    for (let [key, value] of Object.entries(transformedQueryParams)) {
+      url.searchParams.append(key, value);
+    }
+    return url.pathname + url.search;
+  }
+
   private get baseHeaders() {
     return {
       "User-Agent": "@gray-adeyi/alatpay-sdk 0.0.0",
