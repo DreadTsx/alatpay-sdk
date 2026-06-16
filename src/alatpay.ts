@@ -42,31 +42,31 @@ export default class ALATPayClient {
     );
   }
 
-  async initPayViaUSSD() {}
+  initPayViaUSSD() {}
 
-  async finalizePayViaUSSD() {}
+  finalizePayViaUSSD() {}
 
-  async initPayViaBankDetails() {}
+  initPayViaBankDetails() {}
 
-  async finalizePayViaBankDetails() {}
+  finalizePayViaBankDetails() {}
 
-  async initCreateStaticWallet() {}
+  initCreateStaticWallet() {}
 
-  async finalizeCreateStaticWallet() {}
+  finalizeCreateStaticWallet() {}
 
-  async getStaticWallet() {}
+  getStaticWallet() {}
 
-  async getStaticWallets() {}
+  getStaticWallets() {}
 
-  async getStaticWalletCollectionHistory() {}
+  getStaticWalletCollectionHistory() {}
 
-  async getTransaction() {}
+  getTransaction() {}
 
-  async getTransactions() {}
+  getTransactions() {}
 
-  async getSettlements() {}
+  getSettlements() {}
 
-  async createPaymentLink() {}
+  createPaymentLink() {}
 
-  async getTransactionViaPaymentLink() {}
+  getTransactionViaPaymentLink() {}
 }
