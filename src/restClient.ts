@@ -1,4 +1,5 @@
 import { HTTPMethod } from "./enums.ts";
+import { ClientError } from "./errors.ts";
 
 type KeyDisplayNames =
   | "public key"
@@ -13,10 +14,10 @@ export default class RESTClient {
   static ALATPAY_SECRET_KEY_NAME = "ALATPAY_SECRET_KEY";
   static ALATPAY_WEBHOOK_SECRET_KEY_NAME = "ALATPAY_WEBHOOK_SECRET_KEY";
 
-  secretKey: string;
-  businessId: string;
-  webhookSecretKey: string;
-  publicKey: string;
+  secretKey: string = "";
+  businessId: string = "";
+  webhookSecretKey: string = "";
+  publicKey: string = "";
 
   constructor(
     secretKey?: string,
@@ -29,19 +30,19 @@ export default class RESTClient {
       RESTClient.ALATPAY_SECRET_KEY_NAME,
       secretKey,
     );
-    loadKey(
+    this.loadKey(
       "business id",
       RESTClient.ALATPAY_BUSINESS_ID_NAME,
       businessId,
       true,
     );
-    loadKey(
+    this.loadKey(
       "public key",
       RESTClient.ALATPAY_PUBLIC_KEY_NAME,
-      businessId,
+      publicKey,
       true,
     );
-    loadKey(
+    this.loadKey(
       "webhook secret key",
       RESTClient.ALATPAY_WEBHOOK_SECRET_KEY_NAME,
       webhookSecretKey,
@@ -97,7 +98,7 @@ export default class RESTClient {
           this.businessId = value;
           break;
         case "webhook secret key":
-          this.wehookSecretKey = value;
+          this.webhookSecretKey = value;
       }
       return;
     }
