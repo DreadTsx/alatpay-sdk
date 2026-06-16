@@ -1,12 +1,22 @@
-export type APIResponse<T> = {
-  status: boolean;
+import type { Currency } from "../enums.ts";
+import type { Customer } from "./global.ts";
+
+export type APISuccessResponse<T> = {
+  status: true;
   message: string;
   data: T;
+};
+
+export type APIErrorResponse = {
+  status: false;
+  message: string;
+  data: null;
 };
 
 export type PaginatedAPIResponse = {};
 
 export type VirtualAccount = {
+  readonly status: string;
   readonly businessId: string;
   readonly amount: number;
   readonly currency: Currency;
@@ -21,6 +31,9 @@ export type VirtualAccount = {
   readonly businessBankCode: string;
   readonly transactionId: string;
   readonly expiredAt: string;
-  readonly settlementType: "manual";
+  readonly settlementType: string | null;
   readonly createdAt: string;
+readonly subBusinessCode: string | null;
+  readonly  expectedFee:number | null;
+   readonly passCharge: boolean;
 };

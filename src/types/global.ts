@@ -1,4 +1,4 @@
-import type { Currency } from "./enums.ts";
+import type { Currency } from "../enums.ts";
 
 export type Customer = {
   email: string;
