@@ -1,8 +1,14 @@
 import RESTClient from "./restClient.ts";
-import type { GenerateVirtualAccountPayload } from "./types/global.ts";
+import type {
+  CreatePaymentLinkPayload,
+  GenerateVirtualAccountPayload,
+  GetTransactionsQuery,
+} from "./types/global.ts";
 import type {
   APIErrorResponse,
   APISuccessResponse,
+  PaymentLink,
+  PaymentLinkTransaction,
   VirtualAccount,
 } from "./types/responseModels.ts";
 import { HTTPMethod } from "./enums.ts";
@@ -62,11 +68,37 @@ export default class ALATPayClient {
 
   getTransaction() {}
 
-  getTransactions() {}
+  getTransactions(
+    query: GetTransactionsQuery,
+  ): Promise<APISuccessResponse<PaymentLink> | APIErrorResponse> {
+    const endpoint = this.client.addQueryParams(
+      "/alatpaytransaction/api/v1/transactions",
+      query,
+    );
+    return this.client.call(
+      endpoint,
+      HTTPMethod.GET,
+    );
+  }
 
   getSettlements() {}
 
-  createPaymentLink() {}
+  createPaymentLink(
+    payload: CreatePaymentLinkPayload,
+  ): Promise<APISuccessResponse<PaymentLink> | APIErrorResponse> {
+    return this.client.call(
+      "/merchant-onboarding/api/v1/payment/initialize",
+      HTTPMethod.POST,
+      payload,
+    );
+  }
 
-  getTransactionViaPaymentLink() {}
+  getTransactionViaPaymentLink(
+    paymentReference: string,
+  ): Promise<APISuccessResponse<PaymentLinkTransaction> | APIErrorResponse> {
+    return this.client.call(
+      `/merchant-onboarding/api/v1/payment/status/${paymentReference}`,
+      HTTPMethod.GET,
+    );
+  }
 }

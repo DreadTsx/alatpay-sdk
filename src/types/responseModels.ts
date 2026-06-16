@@ -33,7 +33,66 @@ export type VirtualAccount = {
   readonly expiredAt: string;
   readonly settlementType: string | null;
   readonly createdAt: string;
-readonly subBusinessCode: string | null;
-  readonly  expectedFee:number | null;
-   readonly passCharge: boolean;
+  readonly subBusinessCode: string | null;
+  readonly expectedFee: number | null;
+  readonly passCharge: boolean;
+};
+
+export type PaymentLink = {
+  readonly id: string;
+  readonly paymentUrl: string;
+  readonly paymentReference: string;
+  readonly redirectUrl: string;
+};
+
+export type PaymentLinkTransaction = {
+  readonly id: string;
+  readonly businessId: string;
+  readonly primaryApiKey: string;
+  readonly updatedAt: string;
+  readonly createdAt: string;
+  readonly link: string;
+  readonly description: string;
+  readonly amount: number;
+  readonly paymentLinkReference: string;
+  readonly isActive: boolean;
+  readonly status: string;
+  readonly transactions: {
+    readonly amount: number;
+    readonly orderId: string;
+    readonly description: string;
+    readonly paymentMethodId: string;
+    readonly sessionId: string | null;
+    readonly merchantName: string | null;
+    readonly settlementId: string;
+    readonly customer: {
+      readonly id: string;
+      readonly transactionId: string;
+      readonly createdAt: string;
+      readonly email: string;
+      readonly phone: string;
+      readonly firstName: string;
+      readonly lastName: string;
+      readonly metadata: string;
+    };
+    readonly id: string;
+    readonly merchantId: string;
+    readonly businessId: string;
+    readonly channel: string;
+    readonly callbackUrl: string;
+    readonly feeAmount: number;
+    readonly businessName: string;
+    readonly businessBankAccountNumber: string | null;
+    readonly businessBankCode: string | null;
+    readonly currency: Currency;
+    readonly status: string;
+    readonly statusReason: string | null;
+    readonly settlementType: string;
+    readonly createdAt: string;
+    readonly updatedAt: string;
+    readonly settledAt: string;
+  };
+  readonly currency: Currency;
+  readonly splitCode: string | null;
+  readonly redirectUrl: string;
 };

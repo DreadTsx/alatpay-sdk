@@ -16,3 +16,22 @@ export type GenerateVirtualAccountPayload = {
   description: string;
   customer: Customer;
 };
+
+export type CreatePaymentLinkPayload = {
+  email: string;
+  redirectUrl: string;
+  amount: number;
+  currency: Currency;
+};
+
+export type GetTransactionsQuery = {
+  page: number;
+  businessId: string;
+  limit?: number;
+  merchantId?: string;
+  paymentMethod?: string;
+  status?: string;
+  amount?: number;
+  startAt?: string;
+  endAt?: string;
+};
