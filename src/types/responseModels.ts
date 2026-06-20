@@ -13,7 +13,23 @@ export type APIErrorResponse = {
   data: null;
 };
 
-export type PaginatedAPIResponse = {};
+export type APIValidationErrorResponse = {
+  type: string;
+  title: string;
+  status: number;
+  traceId: string;
+  errors: Record<string, string[]>;
+};
+
+export type PaginatedData<T> = {
+  items: T;
+  currentPage: number;
+  totalItems: number;
+  totalPages: number;
+  pathUrl: string;
+  previousPageUrl: string | null;
+  nextPageUrl: string | null;
+};
 
 export type VirtualAccount = {
   readonly status: string;
@@ -95,4 +111,59 @@ export type PaymentLinkTransaction = {
   readonly currency: Currency;
   readonly splitCode: string | null;
   readonly redirectUrl: string;
+};
+
+export type Transaction = {
+  amount: number;
+  description: string;
+  paymentMethodId: number;
+  sessionId: string;
+  merchantName: string | null;
+  settlementId: string;
+  customer: {
+    id: string;
+    transactionId: string;
+    createdAt: string;
+    email: string;
+    phone: string;
+    firstName: string;
+    lastName: string;
+    metadata: string;
+  };
+  isEPosTransaction: boolean;
+  userId: string | null;
+  ePosTransactionReference: string | null;
+  cardScheme: string | null;
+  ePosTransactionStan: string | null;
+  eposTransactionRrn: string | null;
+  terminalId: string | null;
+  cardPan: string | null;
+  cardExpiryDate: string | null;
+  cardHolderName: string | null;
+  applicationPanSequenceNumber: string | null;
+  isStaticWallet: boolean;
+  subBusinessCode: string | null;
+  subBusiness: string | null;
+  isCallbackValidated: boolean;
+  splitCode: string | null;
+  feeBearer: number;
+  id: string;
+  merchantId: string;
+  businessId: string;
+  channel: string;
+  callbackUrl: string | null;
+  feeAmount: number;
+  businessName: string;
+  currency: Currency;
+  status: string;
+  statusReason: string | null;
+  settlementType: string;
+  createdAt: string;
+  updatedAt: string;
+  settledAt: string;
+  orderId: string;
+  ngnVirtualBankAccountNumber: string | null;
+  ngnVirtualBankCode: string | null;
+  usdVirtualAccountNumber: string | null;
+  usdVirtualBankCode: string | null;
 };

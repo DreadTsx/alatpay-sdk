@@ -7,12 +7,18 @@ export const PaymentChannel = {
   STATIC_ACCOUNT: "8",
 } as const;
 
-export type PaymentChannel =
-  (typeof PaymentChannel)[keyof typeof PaymentChannel];
+export type PaymentChannel = (typeof PaymentChannel)[keyof typeof PaymentChannel];
 
 export const Currency = {
   NGN: "NGN",
 } as const;
+
+export const StaticWalletType = {
+  INDIVIDUAL: "1",
+  COLLECTION: "2",
+};
+
+export type StaticWalletType = (typeof StaticWalletType)[keyof typeof StaticWalletType];
 
 export type Currency = (typeof Currency)[keyof typeof Currency];
 
