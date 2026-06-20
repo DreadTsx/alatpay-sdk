@@ -11,9 +11,9 @@ tasks:
   publish:
     desc: Publish package on JSR and NPM registeries
     cmds: 
-      - task publish:jsr
-      - task build:npm
-      - task publish:npm
+      - go-task publish:jsr
+      - go-task build:npm
+      - go-task publish:npm
   publish:jsr:
     desc: Publish package on JSR
     cmds:
