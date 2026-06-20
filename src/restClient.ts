@@ -36,7 +36,7 @@ export default class RESTClient {
       "webhook secret key",
       RESTClient.ALATPAY_WEBHOOK_SECRET_KEY_ENV_NAME,
       webhookSecretKey,
-      false,
+      true,
     );
   }
 
@@ -86,7 +86,7 @@ export default class RESTClient {
 
   private get baseHeaders() {
     return {
-      "User-Agent": "@gray-adeyi/alatpay-sdk 0.0.0",
+      "User-Agent": "@gray-adeyi/alatpay-sdk 0.0.1",
       Accept: "application/json",
       "Content-Type": "application/json",
     };
