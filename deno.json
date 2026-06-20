@@ -1,6 +1,6 @@
 {
   "name": "@gray-adeyi/alatpay-sdk",
-  "description": "An ALATPay client SDK for the javascript runtime.",
+  "description": "A JavaScript/TypeScript client SDK for integrating with the ALATPay API.",
   "version": "0.0.0",
   "author": "Gbenga Adeyi <adeyigbenga005@gmail.com>, Oluwola Emmanuel <hallowpahe@gmail.com>",
   "exports": "./mod.ts",
