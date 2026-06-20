@@ -8,3 +8,22 @@ tasks:
     cmds:
       - deno test --allow-all
     silent: true
+  publish:
+    desc: Publish package on JSR and NPM registeries
+    cmds: 
+      - task publish:jsr
+      - task build:npm
+      - task publish:npm
+  publish:jsr:
+    desc: Publish package on JSR
+    cmds:
+      - deno publish --dry-run
+      - deno publish
+  publish:npm:
+    working_dir: npm
+    desc: Publish package on NPM
+    cmds:
+      - npm publish --access public
+  build:npm:
+    cmds:
+      - deno run --allow-all ./scripts/build_npm.ts {{.VERSION}}
