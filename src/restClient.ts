@@ -52,7 +52,7 @@ export default class RESTClient {
         const authenticationMode = response.headers.get("www-authenticate");
         if (authenticationMode === "Bearer") throw new ClientError(BEARER_TOKEN_ISSUE_ERROR_MSG);
       }
-      return response.json();
+      return response.json() as any;
     } catch (err) {
       if (err instanceof TypeError) {
         throw new ClientError(NETWORK_ERROR_MSG);
