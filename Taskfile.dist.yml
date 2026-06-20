@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  test:
+    desc: Run the test suite
+    cmds:
+      - deno test --allow-all
+    silent: true
