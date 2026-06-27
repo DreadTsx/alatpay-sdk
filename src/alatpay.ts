@@ -231,7 +231,7 @@ export default class ALATPayClient {
   ): Promise<unknown | APIErrorResponse> {
     const _query = this.ensureBusinessId(query);
     const endpoint = this.restClient.addQueryParams(
-      "https://apibox.alatpay.ng/alatpay-wallet/api/v1/staticaccount/collectionhistory",
+      "/alatpay-wallet/api/v1/staticaccount/collectionhistory",
       _query,
     );
     return this.restClient.call(endpoint, HTTPMethod.GET);
