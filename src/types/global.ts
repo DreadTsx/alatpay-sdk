@@ -2,7 +2,7 @@ import type { Currency, PaymentChannel, StaticWalletType } from "../enums.ts";
 
 export type Customer = {
   email: string;
-  phone: string;
+  phone?: string;
   firstName: string;
   lastName: string;
   metadata?: string;
