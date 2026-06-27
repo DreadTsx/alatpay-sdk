@@ -1,7 +1,7 @@
 export const PaymentChannel = {
   ALL: "*",
   CARD: "1",
-  BANK_TRASFER: "2",
+  BANK_TRANSFER: "2",
   BANK_DETAILS: "3",
   USSD: "5",
   STATIC_ACCOUNT: "8",
